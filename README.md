@@ -1,4 +1,4 @@
-# Travel App
+# CONECTA
 
 A new Flutter project.
 
