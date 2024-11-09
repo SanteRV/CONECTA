@@ -25,9 +25,15 @@ class UsuariosRecord extends FirestoreRecord {
   String get password => _password ?? '';
   bool hasPassword() => _password != null;
 
+  // "Confirm_password" field.
+  String? _confirmPassword;
+  String get confirmPassword => _confirmPassword ?? '';
+  bool hasConfirmPassword() => _confirmPassword != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _password = snapshotData['password'] as String?;
+    _confirmPassword = snapshotData['Confirm_password'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -67,11 +73,13 @@ class UsuariosRecord extends FirestoreRecord {
 Map<String, dynamic> createUsuariosRecordData({
   String? email,
   String? password,
+  String? confirmPassword,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'email': email,
       'password': password,
+      'Confirm_password': confirmPassword,
     }.withoutNulls,
   );
 
@@ -83,12 +91,14 @@ class UsuariosRecordDocumentEquality implements Equality<UsuariosRecord> {
 
   @override
   bool equals(UsuariosRecord? e1, UsuariosRecord? e2) {
-    return e1?.email == e2?.email && e1?.password == e2?.password;
+    return e1?.email == e2?.email &&
+        e1?.password == e2?.password &&
+        e1?.confirmPassword == e2?.confirmPassword;
   }
 
   @override
   int hash(UsuariosRecord? e) =>
-      const ListEquality().hash([e?.email, e?.password]);
+      const ListEquality().hash([e?.email, e?.password, e?.confirmPassword]);
 
   @override
   bool isValidKey(Object? o) => o is UsuariosRecord;

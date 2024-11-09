@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -422,8 +423,17 @@ class _EstadoPaginasWidgetState extends State<EstadoPaginasWidget> {
                         Align(
                           alignment: const AlignmentDirectional(0.0, 0.0),
                           child: FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
+                            onPressed: () async {
+                              await RedesSocialesRecord.collection
+                                  .doc()
+                                  .set(createRedesSocialesRecordData(
+                                    paginaWeb: _model.textController1.text,
+                                    facebook: _model.textController2.text,
+                                    instagram: _model.textController3.text,
+                                    tiktok: _model.textController4.text,
+                                  ));
+
+                              context.pushNamed('Registro_usuario');
                             },
                             text: 'Siguiente',
                             options: FFButtonOptions(

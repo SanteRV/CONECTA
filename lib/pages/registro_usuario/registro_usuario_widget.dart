@@ -1,26 +1,27 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'estado_contrasea_model.dart';
-export 'estado_contrasea_model.dart';
+import 'registro_usuario_model.dart';
+export 'registro_usuario_model.dart';
 
-class EstadoContraseaWidget extends StatefulWidget {
-  const EstadoContraseaWidget({super.key});
+class RegistroUsuarioWidget extends StatefulWidget {
+  const RegistroUsuarioWidget({super.key});
 
   @override
-  State<EstadoContraseaWidget> createState() => _EstadoContraseaWidgetState();
+  State<RegistroUsuarioWidget> createState() => _RegistroUsuarioWidgetState();
 }
 
-class _EstadoContraseaWidgetState extends State<EstadoContraseaWidget> {
-  late EstadoContraseaModel _model;
+class _RegistroUsuarioWidgetState extends State<RegistroUsuarioWidget> {
+  late RegistroUsuarioModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => EstadoContraseaModel());
+    _model = createModel(context, () => RegistroUsuarioModel());
 
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
@@ -367,8 +368,17 @@ class _EstadoContraseaWidgetState extends State<EstadoContraseaWidget> {
                         Align(
                           alignment: const AlignmentDirectional(0.0, 0.0),
                           child: FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
+                            onPressed: () async {
+                              await UsuariosRecord.collection
+                                  .doc()
+                                  .set(createUsuariosRecordData(
+                                    email: _model.textController1.text,
+                                    password: _model.textController2.text,
+                                    confirmPassword:
+                                        _model.textController3.text,
+                                  ));
+
+                              context.pushNamed('Pagina_central_negocio');
                             },
                             text: 'Siguiente',
                             options: FFButtonOptions(

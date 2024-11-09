@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'registro_estado_empresa_widget.dart' show RegistroEstadoEmpresaWidget;
+import 'formalizar_pagina_pagada_widget.dart' show FormalizarPaginaPagadaWidget;
 import 'package:flutter/material.dart';
 
-class RegistroEstadoEmpresaModel
-    extends FlutterFlowModel<RegistroEstadoEmpresaWidget> {
+class FormalizarPaginaPagadaModel
+    extends FlutterFlowModel<FormalizarPaginaPagadaWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for TextField widget.
@@ -22,10 +22,6 @@ class RegistroEstadoEmpresaModel
   FocusNode? textFieldFocusNode4;
   TextEditingController? textController4;
   String? Function(BuildContext, String?)? textController4Validator;
-  // State field(s) for si_no_redes widget.
-  bool? siNoRedesValue;
-  // State field(s) for si_no_formalizado widget.
-  bool? siNoFormalizadoValue;
 
   @override
   void initState(BuildContext context) {}

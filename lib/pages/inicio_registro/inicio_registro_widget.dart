@@ -111,8 +111,8 @@ class _InicioRegistroWidgetState extends State<InicioRegistroWidget> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            context.pushNamed('registro_Estado_Empresa');
                           },
                           text: 'Registrar',
                           options: FFButtonOptions(
@@ -137,8 +137,20 @@ class _InicioRegistroWidgetState extends State<InicioRegistroWidget> {
                           ),
                         ),
                         FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            context.pushNamed('inicio_registro');
+
+                            context.pushNamed(
+                              'Login',
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: const TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType:
+                                      PageTransitionType.bottomToTop,
+                                  duration: Duration(milliseconds: 100),
+                                ),
+                              },
+                            );
                           },
                           text: 'Iniciar sesión',
                           options: FFButtonOptions(

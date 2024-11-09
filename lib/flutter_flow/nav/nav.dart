@@ -111,9 +111,54 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const EstadoPaginasWidget(),
         ),
         FFRoute(
-          name: 'estado_contrasea',
-          path: '/estadoContrasea',
-          builder: (context, params) => const EstadoContraseaWidget(),
+          name: 'Registro_usuario',
+          path: '/registroUsuario',
+          builder: (context, params) => const RegistroUsuarioWidget(),
+        ),
+        FFRoute(
+          name: 'Pagina_central_negocio',
+          path: '/paginaCentralNegocio',
+          builder: (context, params) => const PaginaCentralNegocioWidget(),
+        ),
+        FFRoute(
+          name: 'pag_mejorando_mi_negocio',
+          path: '/pagMejorandoMiNegocio',
+          builder: (context, params) => const PagMejorandoMiNegocioWidget(),
+        ),
+        FFRoute(
+          name: 'formalizar_empresa',
+          path: '/formalizarEmpresa',
+          builder: (context, params) => const FormalizarEmpresaWidget(),
+        ),
+        FFRoute(
+          name: 'formaizar_1',
+          path: '/formaizar1',
+          builder: (context, params) => const Formaizar1Widget(),
+        ),
+        FFRoute(
+          name: 'Formalizate_2',
+          path: '/formalizate2',
+          builder: (context, params) => const Formalizate2Widget(),
+        ),
+        FFRoute(
+          name: 'formalizate_3',
+          path: '/formalizate3',
+          builder: (context, params) => const Formalizate3Widget(),
+        ),
+        FFRoute(
+          name: 'Formalizacion_costo',
+          path: '/formalizacionCosto',
+          builder: (context, params) => const FormalizacionCostoWidget(),
+        ),
+        FFRoute(
+          name: 'Formalizacin_pago',
+          path: '/formalizacinPago',
+          builder: (context, params) => const FormalizacinPagoWidget(),
+        ),
+        FFRoute(
+          name: 'formalizar_pagina_pagada',
+          path: '/formalizarPaginaPagada',
+          builder: (context, params) => const FormalizarPaginaPagadaWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

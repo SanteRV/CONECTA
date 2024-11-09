@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -514,12 +515,12 @@ class _RegistroEstadoEmpresaWidgetState
                                                       ),
                                                       child: Checkbox(
                                                         value: _model
-                                                                .checkboxValue1 ??=
-                                                            true,
+                                                                .siNoRedesValue ??=
+                                                            false,
                                                         onChanged:
                                                             (newValue) async {
                                                           safeSetState(() =>
-                                                              _model.checkboxValue1 =
+                                                              _model.siNoRedesValue =
                                                                   newValue!);
                                                         },
                                                         side: const BorderSide(
@@ -579,12 +580,12 @@ class _RegistroEstadoEmpresaWidgetState
                                                       ),
                                                       child: Checkbox(
                                                         value: _model
-                                                                .checkboxValue2 ??=
-                                                            true,
+                                                                .siNoFormalizadoValue ??=
+                                                            false,
                                                         onChanged:
                                                             (newValue) async {
                                                           safeSetState(() =>
-                                                              _model.checkboxValue2 =
+                                                              _model.siNoFormalizadoValue =
                                                                   newValue!);
                                                         },
                                                         side: const BorderSide(
@@ -617,10 +618,26 @@ class _RegistroEstadoEmpresaWidgetState
                                       ),
                                     ),
                                     FFButtonWidget(
-                                      onPressed: () {
-                                        print('Button pressed ...');
+                                      onPressed: () async {
+                                        await EmpresaEstadoRecord.collection
+                                            .doc()
+                                            .set(createEmpresaEstadoRecordData(
+                                              nombreEmpresa:
+                                                  _model.textController1.text,
+                                              categoria:
+                                                  _model.textController2.text,
+                                              ruc: _model.textController3.text,
+                                              descripcion:
+                                                  _model.textController4.text,
+                                              redesSociales:
+                                                  _model.siNoRedesValue,
+                                              formalizado:
+                                                  _model.siNoFormalizadoValue,
+                                            ));
+
+                                        context.pushNamed('estado_paginas');
                                       },
-                                      text: 'Siguiente',
+                                      text: 'Continua con tu negocio',
                                       options: FFButtonOptions(
                                         width:
                                             MediaQuery.sizeOf(context).width *

@@ -8,6 +8,10 @@ import 'schema/util/firestore_util.dart';
 import 'schema/users_record.dart';
 import 'schema/house_details_record.dart';
 import 'schema/usuarios_record.dart';
+import 'schema/empresa_estado_record.dart';
+import 'schema/redes_sociales_record.dart';
+import 'schema/estudio_de_mercado_record.dart';
+import 'schema/formalizacion_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -19,6 +23,10 @@ export 'schema/util/schema_util.dart';
 export 'schema/users_record.dart';
 export 'schema/house_details_record.dart';
 export 'schema/usuarios_record.dart';
+export 'schema/empresa_estado_record.dart';
+export 'schema/redes_sociales_record.dart';
+export 'schema/estudio_de_mercado_record.dart';
+export 'schema/formalizacion_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -126,6 +134,154 @@ Future<List<UsuariosRecord>> queryUsuariosRecordOnce({
     queryCollectionOnce(
       UsuariosRecord.collection,
       UsuariosRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query EmpresaEstadoRecords (as a Stream and as a Future).
+Future<int> queryEmpresaEstadoRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      EmpresaEstadoRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<EmpresaEstadoRecord>> queryEmpresaEstadoRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      EmpresaEstadoRecord.collection,
+      EmpresaEstadoRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<EmpresaEstadoRecord>> queryEmpresaEstadoRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      EmpresaEstadoRecord.collection,
+      EmpresaEstadoRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query RedesSocialesRecords (as a Stream and as a Future).
+Future<int> queryRedesSocialesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      RedesSocialesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<RedesSocialesRecord>> queryRedesSocialesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      RedesSocialesRecord.collection,
+      RedesSocialesRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<RedesSocialesRecord>> queryRedesSocialesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      RedesSocialesRecord.collection,
+      RedesSocialesRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query EstudioDeMercadoRecords (as a Stream and as a Future).
+Future<int> queryEstudioDeMercadoRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      EstudioDeMercadoRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<EstudioDeMercadoRecord>> queryEstudioDeMercadoRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      EstudioDeMercadoRecord.collection,
+      EstudioDeMercadoRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<EstudioDeMercadoRecord>> queryEstudioDeMercadoRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      EstudioDeMercadoRecord.collection,
+      EstudioDeMercadoRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query FormalizacionRecords (as a Stream and as a Future).
+Future<int> queryFormalizacionRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      FormalizacionRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<FormalizacionRecord>> queryFormalizacionRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      FormalizacionRecord.collection,
+      FormalizacionRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<FormalizacionRecord>> queryFormalizacionRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      FormalizacionRecord.collection,
+      FormalizacionRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

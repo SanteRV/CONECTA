@@ -40,56 +40,78 @@ class _StartWidgetState extends State<StartWidget> {
           width: MediaQuery.sizeOf(context).width * 1.0,
           height: MediaQuery.sizeOf(context).height * 1.0,
           decoration: const BoxDecoration(),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                width: 349.0,
-                height: 352.0,
-                decoration: BoxDecoration(
-                  color: const Color(0xFF253456),
-                  image: DecorationImage(
-                    fit: BoxFit.fitWidth,
-                    image: Image.asset(
-                      'assets/images/logo-removebg-preview.png',
-                    ).image,
-                  ),
-                  borderRadius: BorderRadius.circular(0.0),
-                  border: Border.all(
-                    color: Colors.transparent,
-                    width: 0.0,
-                  ),
-                ),
-              ),
-              Container(
-                width: 240.0,
-                height: 1.0,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                ),
-                alignment: const AlignmentDirectional(0.0, 0.0),
-              ),
-              Text(
-                'CONECTA',
-                textAlign: TextAlign.center,
-                style: FlutterFlowTheme.of(context).displayLarge.override(
-                      fontFamily: 'Outfit',
-                      color: Colors.white,
-                      fontSize: 45.0,
-                      letterSpacing: 1.0,
-                      fontWeight: FontWeight.bold,
+          child: InkWell(
+            splashColor: Colors.transparent,
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onDoubleTap: () async {
+              context.pushNamed('start');
+
+              context.pushNamed('inicio_registro');
+            },
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  width: 349.0,
+                  height: 352.0,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF253456),
+                    image: DecorationImage(
+                      fit: BoxFit.fitWidth,
+                      image: Image.asset(
+                        'assets/images/logo-removebg-preview.png',
+                      ).image,
                     ),
-              ),
-              Container(
-                width: 240.0,
-                height: 1.0,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                    borderRadius: BorderRadius.circular(0.0),
+                    border: Border.all(
+                      color: Colors.transparent,
+                      width: 0.0,
+                    ),
+                  ),
                 ),
-              ),
-            ],
+                Container(
+                  width: 240.0,
+                  height: 1.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                  ),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
+                ),
+                InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    context.pushNamed('start');
+
+                    context.pushNamed('inicio_registro');
+                  },
+                  child: Text(
+                    'CONECTA',
+                    textAlign: TextAlign.center,
+                    style: FlutterFlowTheme.of(context).displayLarge.override(
+                          fontFamily: 'Outfit',
+                          color: Colors.white,
+                          fontSize: 45.0,
+                          letterSpacing: 1.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                ),
+                Container(
+                  width: 240.0,
+                  height: 1.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
