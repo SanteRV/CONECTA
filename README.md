@@ -1,2 +1,2 @@
 # CONECTA
-proyecto AYNI HACKATON, relacionado a la formalización, tendencias de mercado y transformación y/o transferencia digital de las mypes -MIPYME BITS
+Aplicaativo que ayuda a las mypes a tener más clientes y ser sostenible con el tiempo, a traves de la formlizacion. Además, brindamos seguridad de realizar compras en los pequeños negocios a los clientes.
