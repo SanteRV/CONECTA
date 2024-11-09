@@ -445,8 +445,8 @@ class _FormalizarEmpresaWidgetState extends State<FormalizarEmpresaWidget> {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
+                              onPressed: () async {
+                                context.pushNamed('formaizar_1');
                               },
                               text: 'Formalizar',
                               options: FFButtonOptions(
@@ -469,8 +469,8 @@ class _FormalizarEmpresaWidgetState extends State<FormalizarEmpresaWidget> {
                               ),
                             ),
                             FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
+                              onPressed: () async {
+                                context.pushNamed('Pagina_central_negocio');
                               },
                               text: 'Página Principal',
                               options: FFButtonOptions(

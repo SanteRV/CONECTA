@@ -75,6 +75,31 @@ class FormalizacionRecord extends FirestoreRecord {
   int get cvc => _cvc ?? 0;
   bool hasCvc() => _cvc != null;
 
+  // "display_name" field.
+  String? _displayName;
+  String get displayName => _displayName ?? '';
+  bool hasDisplayName() => _displayName != null;
+
+  // "photo_url" field.
+  String? _photoUrl;
+  String get photoUrl => _photoUrl ?? '';
+  bool hasPhotoUrl() => _photoUrl != null;
+
+  // "uid" field.
+  String? _uid;
+  String get uid => _uid ?? '';
+  bool hasUid() => _uid != null;
+
+  // "created_time" field.
+  DateTime? _createdTime;
+  DateTime? get createdTime => _createdTime;
+  bool hasCreatedTime() => _createdTime != null;
+
+  // "phone_number" field.
+  String? _phoneNumber;
+  String get phoneNumber => _phoneNumber ?? '';
+  bool hasPhoneNumber() => _phoneNumber != null;
+
   void _initializeFields() {
     _nombre = snapshotData['nombre'] as String?;
     _apellido = snapshotData['apellido'] as String?;
@@ -88,6 +113,11 @@ class FormalizacionRecord extends FirestoreRecord {
     _nTarjeta = castToType<double>(snapshotData['n_tarjeta']);
     _anio = castToType<int>(snapshotData['anio']);
     _cvc = castToType<int>(snapshotData['cvc']);
+    _displayName = snapshotData['display_name'] as String?;
+    _photoUrl = snapshotData['photo_url'] as String?;
+    _uid = snapshotData['uid'] as String?;
+    _createdTime = snapshotData['created_time'] as DateTime?;
+    _phoneNumber = snapshotData['phone_number'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -137,6 +167,11 @@ Map<String, dynamic> createFormalizacionRecordData({
   double? nTarjeta,
   int? anio,
   int? cvc,
+  String? displayName,
+  String? photoUrl,
+  String? uid,
+  DateTime? createdTime,
+  String? phoneNumber,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -152,6 +187,11 @@ Map<String, dynamic> createFormalizacionRecordData({
       'n_tarjeta': nTarjeta,
       'anio': anio,
       'cvc': cvc,
+      'display_name': displayName,
+      'photo_url': photoUrl,
+      'uid': uid,
+      'created_time': createdTime,
+      'phone_number': phoneNumber,
     }.withoutNulls,
   );
 
@@ -175,7 +215,12 @@ class FormalizacionRecordDocumentEquality
         e1?.porTransferencia == e2?.porTransferencia &&
         e1?.nTarjeta == e2?.nTarjeta &&
         e1?.anio == e2?.anio &&
-        e1?.cvc == e2?.cvc;
+        e1?.cvc == e2?.cvc &&
+        e1?.displayName == e2?.displayName &&
+        e1?.photoUrl == e2?.photoUrl &&
+        e1?.uid == e2?.uid &&
+        e1?.createdTime == e2?.createdTime &&
+        e1?.phoneNumber == e2?.phoneNumber;
   }
 
   @override
@@ -191,7 +236,12 @@ class FormalizacionRecordDocumentEquality
         e?.porTransferencia,
         e?.nTarjeta,
         e?.anio,
-        e?.cvc
+        e?.cvc,
+        e?.displayName,
+        e?.photoUrl,
+        e?.uid,
+        e?.createdTime,
+        e?.phoneNumber
       ]);
 
   @override

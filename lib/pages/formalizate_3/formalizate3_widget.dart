@@ -62,22 +62,18 @@ class _Formalizate3WidgetState extends State<Formalizate3Widget> {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 80.0),
-                        child: Text(
-                          '¿Cuál es el rango de capital que la empresa declarará?',
-                          textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context)
-                              .headlineMedium
-                              .override(
-                                fontFamily: 'Urbanist',
-                                color: const Color(0xFF253456),
-                                fontSize: 28.0,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.bold,
-                              ),
-                        ),
+                      Text(
+                        '¿Cuál es el rango de capital que la empresa declarará?',
+                        textAlign: TextAlign.center,
+                        style: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .override(
+                              fontFamily: 'Urbanist',
+                              color: const Color(0xFF253456),
+                              fontSize: 28.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                       ),
                       Material(
                         color: Colors.transparent,
@@ -319,6 +315,8 @@ class _Formalizate3WidgetState extends State<Formalizate3Widget> {
                                 rangoDeCapital: _model.dropDownValue1,
                                 provincia: _model.dropDownValue2,
                               ));
+
+                          context.pushNamed('Formalizacion_costo');
                         },
                         text: 'Continuar',
                         options: FFButtonOptions(

@@ -2,6 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
+
 
 import '/auth/base_auth_user_provider.dart';
 
@@ -118,7 +121,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Pagina_central_negocio',
           path: '/paginaCentralNegocio',
-          builder: (context, params) => const PaginaCentralNegocioWidget(),
+          builder: (context, params) => PaginaCentralNegocioWidget(
+            compra: params.getParam(
+              'compra',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Estudio_de_mercado'],
+            ),
+          ),
         ),
         FFRoute(
           name: 'pag_mejorando_mi_negocio',
@@ -159,6 +169,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'formalizar_pagina_pagada',
           path: '/formalizarPaginaPagada',
           builder: (context, params) => const FormalizarPaginaPagadaWidget(),
+        ),
+        FFRoute(
+          name: 'usuario_inicio',
+          path: '/usuarioInicio',
+          builder: (context, params) => const UsuarioInicioWidget(),
+        ),
+        FFRoute(
+          name: 'Localizacion',
+          path: '/localizacion',
+          builder: (context, params) => const LocalizacionWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -278,6 +298,7 @@ class FFParameters {
     ParamType type, {
     bool isList = false,
     List<String>? collectionNamePath,
+    StructBuilder<T>? structBuilder,
   }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -296,6 +317,7 @@ class FFParameters {
       type,
       isList,
       collectionNamePath: collectionNamePath,
+      structBuilder: structBuilder,
     );
   }
 }

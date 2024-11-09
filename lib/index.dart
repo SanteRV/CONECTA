@@ -25,3 +25,5 @@ export '/pages/formalizacin_pago/formalizacin_pago_widget.dart'
     show FormalizacinPagoWidget;
 export '/pages/formalizar_pagina_pagada/formalizar_pagina_pagada_widget.dart'
     show FormalizarPaginaPagadaWidget;
+export '/usuario_inicio/usuario_inicio_widget.dart' show UsuarioInicioWidget;
+export '/localizacion/localizacion_widget.dart' show LocalizacionWidget;
